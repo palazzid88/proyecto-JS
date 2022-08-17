@@ -4,29 +4,42 @@
 //declaración de variables:
 
 let producto;
+let carrito;
 
 
 producto = prompt("que producto desea comprar? \n Manzana \n Banana \n Pera \n frutilla \n kiwi \n Naranja ");
 
-while (producto == "esc") {
+while (producto != "esc") {
     switch (producto) {
         case "banana":
-            console.log("tu producto elegido es " + producto + " El valor del Kg es de $190");
+            carrito = ("tu producto elegido es " + producto + " El valor del Kg es de $190");
+            console.log(carrito);
+            alert(carrito)
             break;
         case "manzana":
-            console.log("tu producto elegido es " + producto + " El valor del Kg es de $250");
+            carrito = ("tu producto elegido es " + producto + " El valor del Kg es de $250");
+            console.log(carrito);
+            alert(carrito);
             break;
         case "Pera":
-            console.log("tu producto elegido es " + producto + " El valor del Kg es de $160");
+            carrito = ("tu producto elegido es " + producto + " El valor del Kg es de $160");
+            console.log(carrito);
+            alert(carrito);
             break;
         case "naranja":
-            console.log("tu producto elegido es " + producto + " El valor del Kg es de $120");
+            carrito = ("tu producto elegido es " + producto + " El valor del Kg es de $120");
+            console.log(carrito);
+            alert(carrito);
             break;
         case "frutilla":
-            console.log("tu producto elegido es " + producto + " El valor del Kg es de $310");
+            carrito = ("tu producto elegido es " + producto + " El valor del Kg es de $310");
+            console.log(carrito);
+            alert(carrito);
             break;
         case "kiwi":
-            console.log("tu producto elegido es " + producto + " El valor del Kg es de $320");
+            carrito = ("tu producto elegido es " + producto + " El valor del Kg es de $320");
+            console.log(carrito);
+            alert(carrito);
             break;            
         default:
             console.log("Ingresaste un producto inexistente")
