@@ -7,7 +7,7 @@ let producto;
 let carrito;
 
 
-producto = prompt("que producto desea comprar? \n Manzana \n Banana \n Pera \n frutilla \n kiwi \n Naranja ");
+producto = prompt("que producto desea comprar? \n Manzana \n Banana \n Pera \n frutilla \n kiwi \n Naranja");
 
 while (producto != "esc") {
     switch (producto) {
@@ -42,8 +42,12 @@ while (producto != "esc") {
             alert(carrito);
             break;            
         default:
-            console.log("Ingresaste un producto inexistente")
-            break;
+            console.log("Ingresaste un producto inexistente");
+            alert("Reingrese un producto, o escriba escape")
+            producto = prompt("que producto desea comprar? \n Manzana \n Banana \n Pera \n frutilla \n kiwi \n Naranja")
+            continue;
     }
     producto = "esc"
 }
+console.log("Gracias por utilizar nuestra tienda oline!");
+alert("Gracias por utilizar nuestra tienda oline!");
