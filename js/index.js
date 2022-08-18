@@ -21,7 +21,7 @@ do {
             console.log(carrito);
             alert(carrito);
             break;
-        case "Pera":
+        case "pera":
             carrito = ("tu producto elegido es " + producto + " El valor del Kg es de $160");
             console.log(carrito);
             alert(carrito);
@@ -43,8 +43,8 @@ do {
             break;            
         default:
             console.log("Ingresaste un producto inexistente");
-            alert("Reingrese un producto, o escriba escape")
-            producto = prompt("que producto desea comprar? \n Manzana \n Banana \n Pera \n frutilla \n kiwi \n Naranja")
+            alert("ingresaste un producto inexistente")
+            producto = prompt("Reingrese el producto o presione N. \n Manzana \n Banana \n Pera \n frutilla \n kiwi \n Naranja")
             continue;
     }
     producto = prompt("ingrese otro producto, si desea salir presione N")
