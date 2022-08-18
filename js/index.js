@@ -9,7 +9,7 @@ let carrito;
 
 producto = prompt("que producto desea comprar? \n Manzana \n Banana \n Pera \n frutilla \n kiwi \n Naranja");
 
-while (producto != "esc") {
+do {
     switch (producto) {
         case "banana":
             carrito = ("tu producto elegido es " + producto + " El valor del Kg es de $190");
@@ -47,7 +47,8 @@ while (producto != "esc") {
             producto = prompt("que producto desea comprar? \n Manzana \n Banana \n Pera \n frutilla \n kiwi \n Naranja")
             continue;
     }
-    producto = "esc"
+    producto = prompt("ingrese otro producto, si desea salir presione N")
 }
+while (producto != "n")
 console.log("Gracias por utilizar nuestra tienda oline!");
-alert("Gracias por utilizar nuestra tienda oline!");
+alert("Gracias por utilizar nuestra tienda oline!")
