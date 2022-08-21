@@ -1,7 +1,7 @@
 // declaración de variables:
 
-let user = "Maria Martinez";
-let pass = "5337";
+let user = "Gustavo Cerati";
+let pass = "1234";
 let validacion;
 let producto;
 let carrito;
