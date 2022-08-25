@@ -30,6 +30,7 @@ if (validacion == true) {
     // valorFruta ();
     valorTotal();
     alert(`El total de su compra es de $${costoTotal} `)
+    saludo ();
 }
 
 // funciones:
@@ -155,4 +156,8 @@ function valorTotal () {
     costoTotal = costoTotal + costoParcial;
     console.log(costoTotal);
     return(costoTotal);
+}
+
+function saludo () {
+    alert("gracias por utilizar nuestra tienda on line!")
 }
