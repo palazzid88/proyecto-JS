@@ -83,48 +83,36 @@ function productoIngresado () {
     while (validacion) {
         switch (producto) {
             case "banana":
-                    console.log(`tu producto elegido es ${producto} El valor del Kg es de $${banana}`);
-                    alert(`tu producto elegido es ${producto} El valor del Kg es de $${banana}`);
-                    kilogramos = prompt(`Cúantos kg de ${producto} desea?`)
+                    mostrarCarrito (producto, banana);
                     carrito = banana;
                     valorFruta ();
                     console.log(costoParcial);
                 break;
             case "manzana":
-                    console.log(`tu producto elegido es ${producto} El valor del Kg es de $${manzana}`);
-                    alert(`tu producto elegido es ${producto} El valor del Kg es de $${manzana}`);
-                    kilogramos = prompt(`Cúantos kg de ${producto} desea?`)
+                    mostrarCarrito (producto, manzana);
                     carrito = manzana;
                     valorFruta ();
                     console.log(costoParcial);
                 break;
             case "naranja":
-                    console.log(`tu producto elegido es ${producto} El valor del Kg es de $${naranja}`);
-                    alert(`tu producto elegido es ${producto} El valor del Kg es de $${naranja}`);
-                    kilogramos = prompt(`Cúantos kg de ${producto} desea?`)
+                    mostrarCarrito (producto, naranja);
                     carrito = naranja;
                     valorFruta ();
                     console.log(costoParcial);
                 break;
             case "frutilla":
-                    console.log(`tu producto elegido es ${producto} El valor del Kg es de $${frutilla}`);
-                    alert(`tu producto elegido es ${producto} El valor del Kg es de $${frutilla}`);
-                    kilogramos = prompt(`Cúantos kg de ${producto} desea?`)
+                    mostrarCarrito (producto, naranja);
                     carrito = frutilla;
                     valorFruta ();
                     console.log(costoParcial);
                 break;
             case "kiwi":
-                    console.log(`tu producto elegido es ${producto} El valor del Kg es de $${kiwi}`);
-                    alert(`tu producto elegido es ${producto} El valor del Kg es de $${kiwi}`);
-                    kilogramos = prompt(`Cúantos kg de ${producto} desea?`)
+                    mostrarCarrito (producto, kiwi);
                     carrito = kiwi; valorFruta ();
                     console.log(costoParcial);
                 break;
             case "pera":
-                    console.log(`tu producto elegido es ${producto} El valor del Kg es de $${pera}`);
-                    alert(`tu producto elegido es ${producto} El valor del Kg es de $${pera}`);
-                    kilogramos = prompt(`Cúantos kg de ${producto} desea?`)
+                    mostrarCarrito (producto, pera);
                     carrito = pera; 
                     valorFruta ();
                     console.log(costoParcial);
@@ -136,8 +124,8 @@ function productoIngresado () {
                 break;        
             default:
                 console.log("Ingresaste un producto inexistente");
-                alert("ingresaste un producto inexistente")
-                producto = prompt("Reingrese el producto o presione N. \n Manzana \n Banana \n Pera \n frutilla \n kiwi \n Naranja")
+                alert("ingresaste un producto inexistente");
+                producto = prompt("Reingrese el producto o presione N. \n Manzana \n Banana \n Pera \n frutilla \n kiwi \n Naranja");
                 continue;
         }
         if (validacion) {
@@ -156,6 +144,12 @@ function valorTotal () {
     costoTotal = costoTotal + costoParcial;
     console.log(costoTotal);
     return(costoTotal);
+}
+
+function mostrarCarrito (eleccion, precio) {    
+    console.log(`tu producto elegido es ${eleccion} El valor del Kg es de $${precio}`);
+    alert(`tu producto elegido es ${eleccion} El valor del Kg es de $${precio}`);
+    kilogramos = prompt(`Cúantos kg de ${eleccion} desea?`);
 }
 
 function saludo () {
