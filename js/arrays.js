@@ -152,3 +152,14 @@ function sumarCarrito () {
 
 }
 
+
+
+// Interacción con el HTML-DOM_JS
+
+let pushCarrito = document.getElementsByClassName ('button_card');
+console.log(pushCarrito);
+for (const boton of pushCarrito) {
+    pushCarrito.innerHTML = "guardado";
+    console.log(pushCarrito)    
+}
+
