@@ -154,12 +154,28 @@ function sumarCarrito () {
 
 
 
-// Interacción con el HTML-DOM_JS
+// Interacción con el HTML-DOM-JS
 
-let pushCarrito = document.getElementsByClassName ('button_card');
-console.log(pushCarrito);
-for (const boton of pushCarrito) {
-    pushCarrito.innerHTML = "guardado";
-    console.log(pushCarrito)    
+
+let carritoPush = document.getElementById ("text__carrito");
+let precioTotal = document.getElementById ("total")
+
+//si precioProducto != "", quiere decir que tiene cargado un producto del array carrito
+if (precioProducto != "") { 
+    console.log(carritoPush.innerText);
+    carritoPush.innerHTML = `Total de su carrito:`;
+    console.log(carritoPush);
+    console.log(precioTotal.innerText);
+    precioTotal.innerHTML = `$ ${precioProducto}`
+    console.log(precioTotal);
+}
+
+//Eventos:
+let boton = document.getElementById ("button__manzana");
+
+boton.addEventListener("click", agregarAlCarrito);
+
+function agregarAlCarrito () {
+    console.log("producto agregado");
 }
 

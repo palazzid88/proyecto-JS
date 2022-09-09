@@ -83,3 +83,12 @@ header {
     width: 90%;
     margin: 10px;
 }
+
+.carrito {
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid, white;
+    border-radius: 2px;
+}
