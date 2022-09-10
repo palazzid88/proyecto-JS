@@ -1,217 +1,84 @@
-// variables:
 
 // Arrays :
-const productos = [];
-const carrito = [];
-const totalPrecio = [];
-
-// Variables de Login
-let user = "a";
-let pass = "1";
-
-// Variables de proceso:
-let productoFiltrado;
-let productoElegido;
-let productoCarrito;
-let precioProducto;
-let kilogramo;
-let totalPrecioKg = 0;
-let userIngresado;
-let passIngresado;
+let carritoDeCompras = [];
 
 
-// Constructor de objetos
-class producto {
-    constructor (id, nombre, precio, stock, unidad, estacion, tipo, img) { 
-    this.id = id;
-    this.nombre = nombre;
-    this.precio = precio;
-    this.stock = stock;
-    this.unidad = unidad;
-    this.estacion = estacion;
-    this.tipo = tipo;
-    this.img = img;
-}
-} 
+// Llamadas al HTML:
 
-// Objetos construidos:
-let banana = new producto (1000, "banana", 180, "1000", "kg", "anual", "fruta", "./img/banana.jpg");
-let manzana = new producto (1000, "manzana", 190, "1000", "kg", "anual", "fruta", "./img/manzana.jpg");
-let naranja = new producto (1000, "naranja", 200, "1000", "kg", "anual", "fruta", "./img/naranja.jpg");
-let frutilla = new producto (1000, "frutilla", 320, "1000", "kg", "anual", "fruta", "./img/frutilla.jpg");
-let kiwi = new producto (1000, "kiwi", 310, "1000", "kg", "anual", "fruta", "./img/kiwi.jpg");
-let pera = new producto (1000, "pera", 160, "1000", "kg", "anual", "fruta", "./img/pera.jpg");
+let contenedor = document.getElementById("main_container");
+let alCarrito = document.getElementById("carrito");
 
 
-// Objetos pusheados al Array de productos
-productos.push (banana, manzana, naranja, frutilla, kiwi, pera);
-console.log(productos);
-
-//Crear elementos desde JS a DOM-HTML
-
-// let card = document.getElementById("main_container");
-// let arrayProductos = [banana, manzana, naranja, frutilla, kiwi, pera];
-//     for (const producto of arrayProductos) {
-//         let  = document.createElement ("li");
-//         console.log(producto);
-//         li.innerHTML = producto;
-//         cards.appendChild (li);
-        
-//     }
-for (const producto of productos) {
-    let contenedor = document.createElement ("card");
-    contenedor.innerHTML = 
-`<card class="card_container">
-<picture class="card__picture">
-    <img class="img" src="./img/naranja.jpg" alt="">
-</picture>
-<div class="info_card">
-    <h2 class="title__card">${producto.nombre}</h2>
-    <p class="parraph__card">Para jugo exprimido</p>
-    <button class="button_card" type="button">añadir al carrito</botton>
-</div>
-</card>`
-document.body.appendChild(contenedor);
-}
-let cards = document.getElementById("main_container");
-cards.innerHTML =         
-`<card class="card_container">
-    <picture class="card__picture">
-        <img class="img" src="./img/naranja.jpg" alt="">
-    </picture>
-    <div class="info_card">
-        <h2 class="title__card">${producto.nombre}</h2>
-        <p class="parraph__card">Para jugo exprimido</p>
-        <button class="button_card" type="button">añadir al carrito</botton>
-    </div>
-</card>`
 
 
-// Login - acceso
 
-ingreso ();
-if (validacion) { //EL pedir producto se dá si la validación del user es True
-    pedirProducto ();
-    while (validacion) {
-    productoIngresado ()
-}
-sumarCarrito ();
+// Creo elementos desde JS a DOM-HTML.
+// llamo al array stockProduuctos desde stock.js, y lo itero.
+
+stockProductos.forEach(item => { 
+
+// creo un div con cada uno de los objetos delarray
+    let div = document.createElement('div')
+    div.className = 'div_container'
+
+// Creo código de JS dentro del div
+    div.innerHTML = `<card class="card_container">
+                        <picture class="card__picture">
+                            <img class="img" src="${item.img}" alt="">
+                        </picture>
+                        <div class="info_card">
+                            <h2 class="title__card">${item.nombre}</h2>
+                            <p class="parraph__card">${item.descripcion}</p>
+                            <p class="parraph__card">$${item.precio}</p>
+                            <div class="input">
+                                <input type="number" id="cantidad" placeholder="ingrese cantidad de kg">
+                            </div>
+                            <button id="btnAñadir${item.id}" class="button_card" type="button">añadir al carrito</botton>
+                        </div>
+                    </card>`
+
+// Añado el código al cotenedor 
+contenedor.appendChild(div);
+
+// Creo Evento Click para botón de producto
+    let btnAñadir = document.getElementById(`btnAñadir${item.id}`);
+    btnAñadir.addEventListener('click', ()=> {
+
+// Invoco a la función agregarCarrito
+    agregarAlCarrito(item.id);
+    })
+
+});
+
+
+
+
+// Creo función para añadir el producto filtrado al array carritoDeCompras
+function agregarAlCarrito (id) {
+
+// Ingreso a la función y busco coincidencia con id
+    let productoAñadido = stockProductos.find(item=> item.id == id);
+
+// Realizo Push del producto encontrado en array de objetos y lo pusheo al carritDeCompras
+    carritoDeCompras.push(productoAñadido);
+
+// llamo a la función mostrarCarrito
+    mostrarCarrito(productoAñadido)
 }
 
 
+// función mostrarCarrito
+function mostrarCarrito (productoAñadido) {
 
-
-
-// funciones:
-
-// Funcion Login 
-function ingreso () {
-        for (i=0; i<3; i++) {
-        
-            userIngresado = prompt("ingrese su nombre de usuario:");
-            passIngresado = prompt("Ingrese su contraseña")
-        
-            if (userIngresado == user && pass == passIngresado) {
-                console.log("Ingreso exitoso")
-                alert("ingreso exitoso");
-                validacion = true;
-                break;
-            }
-            else {
-                validacion = false
-                console.log(validacion)
-                if (userIngresado !== user && passIngresado == pass) {
-                    console.log("usuario invalido");
-                    alert("usuario inválido");
-                    validacion = false;
-                }
-                else {
-                    if (userIngresado == user && passIngresado !== pass) {
-                        console.log("contraseña inválida");
-                        alert("contraseña inválido")
-                        validacion = false;
-                    }
-                    else {
-                        console.log("Usuario y contraseña inválidas")
-                        alert("usuario y contraseña inválidas")
-                        validacion = false;
-                    }
-                }
-            } 
-        }
-        if (validacion == false) {
-        console.log("superó el límite de intentos")
-        alert("superó el limite de intentos")
-    }
+// creo un div por cada producto seleccionado en JS
+    let div = document.createElement('div');
+    div.className = 'carrito';
+    div.innerHTML = `<h3 id="text__carrito">${productoAñadido.nombre}</h3>
+                     <h4 id="total">Precio por Kg: $${productoAñadido.precio}</h4>
+                     <button class="btn_eliminar">Eliminar carrito</button>`
+                     
+// envío el div al HTML
+    alCarrito.appendChild(div)
 }
+    
 
-// funcion Ingresar producto por el cliente
-function pedirProducto () {
-    productoElegido = prompt("Que producto desea comprar: \n Manzana \n banana \n pera \n frutilla \n kiwi \n naranja \n o presione n para salir");
-    console.log(productoElegido);
-    if (productoElegido === "n") {
-        validacion = false
-        console.log(`${userIngresado} Gracias por utilizar nuestra cartilla on line!`)
-    }
-    else {
-        validacion = true
-    }
-}
-
-// 
-function productoIngresado () {
-    productoFiltrado = productos.find (item => item.nombre === productoElegido);
-    console.log(productoFiltrado);
-
-    kilogramo = prompt("ingrese cuantos kilogramos desea");
-    totalPrecioKg = productoFiltrado.precio * kilogramo;
-    console.log(totalPrecioKg);
-
-    alert(`El producto seleccionado es ${productoFiltrado.nombre} 
-    el precio por kg $${productoFiltrado.precio} 
-    usted a solicitado ${kilogramo} 
-    kg, el total es de $${totalPrecioKg}`);
-
-    carrito.push(productoFiltrado); //Array carrito de compras
-    console.log(`carrito`, carrito);
-
-    totalPrecio.push(totalPrecioKg); //Array subtotal de precios
-    console.log(totalPrecio);
-
-    pedirProducto ();
-}
-
-function sumarCarrito () {
-    precioProducto = totalPrecio.reduce((total, producto) => total + producto, 0)
-    console.log(precioProducto);
-    alert(`El costo total en base a su compra es de $${precioProducto}`)
-
-
-}
-
-
-
-// Interacción con el HTML-DOM-JS
-
-
-let carritoPush = document.getElementById ("text__carrito");
-let precioTotal = document.getElementById ("total")
-
-//si precioProducto != "", quiere decir que tiene cargado un producto del array carrito
-if (precioProducto != "") { 
-    console.log(carritoPush.innerText);
-    carritoPush.innerHTML = `Total de su carrito:`;
-    console.log(carritoPush);
-    console.log(precioTotal.innerText);
-    precioTotal.innerHTML = `$ ${precioProducto}`
-    console.log(precioTotal);
-}
-
-//Eventos:
-let boton = document.getElementById ("button__manzana");
-
-boton.addEventListener("click", agregarAlCarrito);
-
-function agregarAlCarrito () {
-    console.log("producto agregado");
-}

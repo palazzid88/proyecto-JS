@@ -50,7 +50,7 @@ header {
     background-color: white;
 }
 
-.main_container {
+#main_container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -61,7 +61,9 @@ header {
 }
 
 .card__picture {
-    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;   
 }
 
 .info_card {
