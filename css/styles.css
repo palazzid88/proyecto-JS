@@ -44,6 +44,21 @@ header {
 
 /*BODY*/
 
+.form_login {
+    background-color: white;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.userValidacion {
+    color: red;
+    text-align: center;
+}
+
 .card_container {
     display: flex;
     flex-direction: column;

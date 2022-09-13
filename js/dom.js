@@ -1,4 +1,12 @@
 
+// Variables:
+let user = "a";
+let pass = 1;
+let validacion;
+let userIngresado;
+let passIngresado;
+let userVerificacion;
+
 // Arrays :
 let carritoDeCompras = [];
 
@@ -15,6 +23,57 @@ let alCarrito = document.getElementById("carrito");
 // Creo elementos desde JS a DOM-HTML.
 // llamo al array stockProduuctos desde stock.js, y lo itero.
 
+// Validación Login:
+function ingreso () {
+    let btn_log = document.getElementById('btn_log');
+    btn_log.addEventListener('click', ()=> {
+    userIngresado = document.getElementById('user_log').value;
+    passIngresado = document.getElementById('pass_log').value;
+    
+
+    for (i=0; i<3; i++) {
+        if (userIngresado == user && pass == passIngresado) {
+            console.log("Ingreso exitoso")
+            alert("ingreso exitoso");
+            validacion = true;
+            mostrarLogin ()
+            break;
+        }
+        else {
+            validacion = false;
+            console.log(validacion);
+            console.log("usuario invalido");
+            mostrarLogin ();
+            }
+}
+})
+}       
+if (validacion) {
+console.log("superó el límite de intentos")
+}
+    
+
+// llamada a la funcion Login
+ingreso ();
+
+
+// Muestra Resultado de login correcto o incorrecto
+function mostrarLogin () {
+    userVerificacion = document.getElementById('userValidacion')
+    if(validacion) {
+        userVerificacion.innerText = "Login Correcto!"
+    }
+    else{
+    userVerificacion.innerText = 
+    `Datos invalidos
+     Ingrese nuevamente`;
+    console.log("usuario incorrecto");
+    }
+}
+
+
+
+// Crear stock en HTML
 stockProductos.forEach(item => { 
 
 // creo un div con cada uno de los objetos delarray
@@ -30,6 +89,7 @@ stockProductos.forEach(item => {
                             <h2 class="title__card">${item.nombre}</h2>
                             <p class="parraph__card">${item.descripcion}</p>
                             <p class="parraph__card">$${item.precio}</p>
+                            <span id="pedirContraseña${item.id}"><span>
                             <div class="input">
                                 <input type="number" id="cantidad" placeholder="ingrese cantidad de kg">
                             </div>
@@ -40,26 +100,29 @@ stockProductos.forEach(item => {
 // Añado el código al cotenedor 
 contenedor.appendChild(div);
 
-// Creo Evento Click para botón de producto
-    let btnAñadir = document.getElementById(`btnAñadir${item.id}`);
-    btnAñadir.addEventListener('click', ()=> {
+// Si el login es True = puedo añadir al carrito - sino pide logearse
+let btnAñadir = document.getElementById(`btnAñadir${item.id}`);
+btnAñadir.addEventListener('click', ()=> {
+    if (validacion) {
+        agregarAlCarrito(item.id);
+    }
+    else{
+        let pedirContraseña = document.getElementById(`btnAñadir${item.id}`);
+        pedirContraseña.innerText = "Ingrese nombre de usuario y contraseña para realizar la compra"
 
-// Invoco a la función agregarCarrito
-    agregarAlCarrito(item.id);
-    })
-
-});
-
-
+    }
+}
+)
+}
+)
 
 
-// Creo función para añadir el producto filtrado al array carritoDeCompras
 function agregarAlCarrito (id) {
 
 // Ingreso a la función y busco coincidencia con id
     let productoAñadido = stockProductos.find(item=> item.id == id);
 
-// Realizo Push del producto encontrado en array de objetos y lo pusheo al carritDeCompras
+// Realizo push del producto encontrado en array de objetos y lo pusheo al carritDeCompras
     carritoDeCompras.push(productoAñadido);
 
 // llamo a la función mostrarCarrito
@@ -71,8 +134,8 @@ function agregarAlCarrito (id) {
 function mostrarCarrito (productoAñadido) {
 
 // creo un div por cada producto seleccionado en JS
-    let div = document.createElement('div');
-    div.className = 'carrito';
+    let div = document.createElement('div')
+    div.className = 'carrito'
     div.innerHTML = `<h3 id="text__carrito">${productoAñadido.nombre}</h3>
                      <h4 id="total">Precio por Kg: $${productoAñadido.precio}</h4>
                      <button class="btn_eliminar">Eliminar carrito</button>`
@@ -80,5 +143,3 @@ function mostrarCarrito (productoAñadido) {
 // envío el div al HTML
     alCarrito.appendChild(div)
 }
-    
-
