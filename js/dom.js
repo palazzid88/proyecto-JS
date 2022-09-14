@@ -6,6 +6,7 @@ let validacion;
 let userIngresado;
 let passIngresado;
 let userVerificacion;
+let calculo;
 
 // Arrays :
 let carritoDeCompras = [];
@@ -91,7 +92,7 @@ stockProductos.forEach(item => {
                             <p class="parraph__card">$${item.precio}</p>
                             <span id="pedirContraseña${item.id}"><span>
                             <div class="input">
-                                <input type="number" id="cantidad" placeholder="ingrese cantidad de kg">
+                                <input type="number" id="cantidad${item.id}" placeholder="ingrese cantidad de kg">
                             </div>
                             <button id="btnAñadir${item.id}" class="button_card" type="button">añadir al carrito</botton>
                         </div>
@@ -102,7 +103,11 @@ contenedor.appendChild(div);
 
 // Si el login es True = puedo añadir al carrito - sino pide logearse
 let btnAñadir = document.getElementById(`btnAñadir${item.id}`);
+let totalKg = document.getElementById(`cantidad${item.id}`);
 btnAñadir.addEventListener('click', ()=> {
+calculo = item.precio*totalKg.value
+console.log(calculo);
+// console.log(calculo);
     if (validacion) {
         agregarAlCarrito(item.id);
     }
@@ -132,14 +137,20 @@ function agregarAlCarrito (id) {
 
 // función mostrarCarrito
 function mostrarCarrito (productoAñadido) {
-
 // creo un div por cada producto seleccionado en JS
     let div = document.createElement('div')
     div.className = 'carrito'
     div.innerHTML = `<h3 id="text__carrito">${productoAñadido.nombre}</h3>
-                     <h4 id="total">Precio por Kg: $${productoAñadido.precio}</h4>
+                     <h4 id="precio_kg">Precio por Kg: $${productoAñadido.precio}</h4>
+                     <h3 id="precio_total">Precio total: $${calculo}<h3>
                      <button class="btn_eliminar">Eliminar carrito</button>`
+    totalCarritoPrecio ();
                      
 // envío el div al HTML
     alCarrito.appendChild(div)
+}
+
+function totalCarritoPrecio () {
+    let mostrarTotal = carritoDeCompras.reduce((acc, item) => acc + item.precio, 0)
+    console.log("total", mostrarTotal);
 }
