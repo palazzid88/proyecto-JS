@@ -6,7 +6,6 @@ let validacion;
 let userIngresado;
 let passIngresado;
 let userVerificacion;
-let calculo;
 
 // Arrays :
 let carritoDeCompras = [];
@@ -87,7 +86,7 @@ function renderizarCarrito () {
         div.innerHTML = `<div class="carrito">
         <h2 class="nombre_carrito">${item.nombre}</h2>
         <p class="precio__carrito">precio por Kg: $${item.precio}</p>
-        <p calss="cantidad__carrito>Cantidad: ${item.cantidad}<p>
+        <p calss="cantidad__carrito">Cantidad: ${item.cantidad}<p>
         <p class="precio_total">Precio total: $${valorSuma}<p>
         <button id="btnEliminar${item.id}" class="button_card" type="button">eliminar carrito </botton>
     </div>`

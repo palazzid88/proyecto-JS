@@ -32,6 +32,7 @@ header {
     display: flex;
     flex-direction: row;
     list-style-type: none;
+    align-items: center;
 }
 
 .header__nav, .ul__nav, .li__ul {
@@ -39,6 +40,10 @@ header {
     padding-bottom: 5px;  
     padding-left: 10px;
     padding-right: 10px; 
+}
+
+.carrito_img {
+width: 50px;
 }
 
 
