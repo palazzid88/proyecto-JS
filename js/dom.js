@@ -16,68 +16,16 @@ let carritoDeCompras = [];
 
 let contenedor = document.getElementById("main_container");
 let alCarrito = document.getElementById("carrito");
+let Total = document.getElementById("total");
 
 
 
 
-
-// Creo elementos desde JS a DOM-HTML.
-// llamo al array stockProduuctos desde stock.js, y lo itero.
-
-// Validación Login:
-function ingreso () {
-    let btn_log = document.getElementById('btn_log');
-    btn_log.addEventListener('click', ()=> {
-    userIngresado = document.getElementById('user_log').value;
-    passIngresado = document.getElementById('pass_log').value;
+// Función para renderizar cardsen DOM
+function renderizarCards () {
     
-
-    for (i=0; i<3; i++) {
-        if (userIngresado == user && pass == passIngresado) {
-            console.log("Ingreso exitoso")
-            alert("ingreso exitoso");
-            validacion = true;
-            mostrarLogin ()
-            break;
-        }
-        else {
-            validacion = false;
-            console.log(validacion);
-            console.log("usuario invalido");
-            mostrarLogin ();
-            }
-}
-})
-}       
-if (validacion) {
-console.log("superó el límite de intentos")
-}
-    
-
-// llamada a la funcion Login
-ingreso ();
-
-
-// Muestra Resultado de login correcto o incorrecto
-function mostrarLogin () {
-    userVerificacion = document.getElementById('userValidacion')
-    if(validacion) {
-        userVerificacion.innerText = "Login Correcto!"
-    }
-    else{
-    userVerificacion.innerText = 
-    `Datos invalidos
-     Ingrese nuevamente`;
-    console.log("usuario incorrecto");
-    }
-}
-
-
-
-// Crear stock en HTML
-stockProductos.forEach(item => { 
-
-// creo un div con cada uno de los objetos delarray
+    // creo un div con cada uno de los objetos del array
+    stockProductos.forEach(item => { 
     let div = document.createElement('div')
     div.className = 'div_container'
 
@@ -100,57 +48,80 @@ stockProductos.forEach(item => {
 
 // Añado el código al cotenedor 
 contenedor.appendChild(div);
-
-// Si el login es True = puedo añadir al carrito - sino pide logearse
-let btnAñadir = document.getElementById(`btnAñadir${item.id}`);
-let totalKg = document.getElementById(`cantidad${item.id}`);
-btnAñadir.addEventListener('click', ()=> {
-calculo = item.precio*totalKg.value
-console.log(calculo);
-// console.log(calculo);
-    if (validacion) {
-        agregarAlCarrito(item.id);
-    }
-    else{
-        let pedirContraseña = document.getElementById(`btnAñadir${item.id}`);
-        pedirContraseña.innerText = "Ingrese nombre de usuario y contraseña para realizar la compra"
-
-    }
-}
-)
-}
-)
-
-
-function agregarAlCarrito (id) {
-
-// Ingreso a la función y busco coincidencia con id
-    let productoAñadido = stockProductos.find(item=> item.id == id);
-
-// Realizo push del producto encontrado en array de objetos y lo pusheo al carritDeCompras
-    carritoDeCompras.push(productoAñadido);
-
-// llamo a la función mostrarCarrito
-    mostrarCarrito(productoAñadido)
+})
+añadirFuncionBtn (); 
 }
 
-
-// función mostrarCarrito
-function mostrarCarrito (productoAñadido) {
-// creo un div por cada producto seleccionado en JS
-    let div = document.createElement('div')
-    div.className = 'carrito'
-    div.innerHTML = `<h3 id="text__carrito">${productoAñadido.nombre}</h3>
-                     <h4 id="precio_kg">Precio por Kg: $${productoAñadido.precio}</h4>
-                     <h3 id="precio_total">Precio total: $${calculo}<h3>
-                     <button class="btn_eliminar">Eliminar carrito</button>`
-    totalCarritoPrecio ();
-                     
-// envío el div al HTML
-    alCarrito.appendChild(div)
+//llamo a la funcion click en btn
+function añadirFuncionBtn () {
+    stockProductos.forEach(item=> {
+        document.getElementById(`btnAñadir${item.id}`).addEventListener(`click`, ()=> {
+            agregarAlCarrito (item)
+        })
+    })
 }
 
-function totalCarritoPrecio () {
-    let mostrarTotal = carritoDeCompras.reduce((acc, item) => acc + item.precio, 0)
-    console.log("total", mostrarTotal);
+// agregaral carrito, se fija en el array si el producto existe 
+function agregarAlCarrito (item) {
+            let existe = carritoDeCompras.some(prod => prod.id === item.id);
+            console.log(existe);
+            if (existe === false) {
+                item.cantidad = 1;
+                carritoDeCompras.push(item)
+            }
+            else{
+                let incrCant = carritoDeCompras.find(prod => prod.id === item.id)
+                incrCant.cantidad++;
+            }
+console.log(carritoDeCompras);
+renderizarCarrito ();
 }
+
+// Funcion renderizar carrito de compras
+function renderizarCarrito () {
+    alCarrito.innerHTML =""
+    carritoDeCompras.forEach(item=>{
+        let valorSuma = `${item.precio * item.cantidad}`
+        let div = document.createElement('div');
+        div.className = 'div_carrito'
+        div.innerHTML = `<div class="carrito">
+        <h2 class="nombre_carrito">${item.nombre}</h2>
+        <p class="precio__carrito">precio por Kg: $${item.precio}</p>
+        <p calss="cantidad__carrito>Cantidad: ${item.cantidad}<p>
+        <p class="precio_total">Precio total: $${valorSuma}<p>
+        <button id="btnEliminar${item.id}" class="button_card" type="button">eliminar carrito </botton>
+    </div>`
+
+    alCarrito.appendChild(div);
+})
+borrarProducto ();
+mostrarTotal ();
+}
+
+// Función para borrar producto del carrito
+function borrarProducto() {
+    carritoDeCompras.forEach(item=> {
+        document.getElementById(`btnEliminar${item.id}`).addEventListener("click", ()=>{
+            let indice = carritoDeCompras.findIndex(el=> el.id === item.id);
+            carritoDeCompras.splice(indice,1);
+            renderizarCarrito();
+        })
+    })
+}
+
+// Función Mostrar el Total 
+function mostrarTotal() {
+    Total.innerHTML= "";
+    let precioTotal = carritoDeCompras.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
+    console.log(precioTotal);
+    let div = document.createElement('div');
+    div.className = 'div_total';
+    div.innerHTML = `<h3 class="total_carrito">Total carrito: $${precioTotal}<h3>`;
+    Total.appendChild(div);
+
+}
+    
+
+
+renderizarCards();
+
