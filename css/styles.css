@@ -46,6 +46,14 @@ header {
 width: 50px;
 }
 
+.img_carrito {
+    width: 50px;
+}
+
+.input_cantidad {
+    width: 40px;
+}
+
 
 /*BODY*/
 
@@ -106,13 +114,39 @@ width: 50px;
     margin: 10px;
 }
 
-.carrito {
+.carrito_flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     background-color: white;
     margin: 10px;
     padding: 10px;
     text-align: center;
     border: 1px solid, white;
     border-radius: 2px;
+}
+
+.carrito_info {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.carrito_cantidad {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.carrito_precio {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.precio_carrito, .precio_total {
+    padding: 5px;
 }
 
 .total_carrito {

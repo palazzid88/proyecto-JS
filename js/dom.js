@@ -38,9 +38,6 @@ function renderizarCards () {
                             <p class="parraph__card">${item.descripcion}</p>
                             <p class="parraph__card">$${item.precio}</p>
                             <span id="pedirContraseña${item.id}"><span>
-                            <div class="input">
-                                <input type="number" id="cantidad${item.id}" placeholder="ingrese cantidad de kg">
-                            </div>
                             <button id="btnAñadir${item.id}" class="button_card" type="button">añadir al carrito</botton>
                         </div>
                     </card>`
@@ -83,19 +80,42 @@ function renderizarCarrito () {
         let valorSuma = `${item.precio * item.cantidad}`
         let div = document.createElement('div');
         div.className = 'div_carrito'
-        div.innerHTML = `<div class="carrito">
-        <h2 class="nombre_carrito">${item.nombre}</h2>
-        <p class="precio__carrito">precio por Kg: $${item.precio}</p>
-        <p calss="cantidad__carrito">Cantidad: ${item.cantidad}<p>
-        <p class="precio_total">Precio total: $${valorSuma}<p>
-        <button id="btnEliminar${item.id}" class="button_card" type="button">eliminar carrito </botton>
+        div.innerHTML = `<div class="carrito_flex">
+        <div class="carrito_info">
+            <picture class="carrito__picture">
+                <img class="img_carrito" src="${item.img}" alt="">
+            </picture>
+            <h2 class="nombre__carrito">${item.nombre}</h2>
+            </div>
+            <div class="carrito_cantidad">
+            <p calss="cantidad__carrito">Cantidad: ${item.cantidad}</p>
+            <button id="btnSumar${item.id}" class="button_card" type="button"> (+) </button>
+            </div>
+            <div class="carrito_precio">
+            <p class="precio_carrito">precio-Kg: $${item.precio}</p>
+            <p class="precio_total">total: $${valorSuma}</p>
+        </div>
+        <button id="btnEliminar${item.id}" class="button_card" type="button">eliminar carrito </button>
     </div>`
 
     alCarrito.appendChild(div);
 })
+sumarProducto ();
 borrarProducto ();
 mostrarTotal ();
 }
+
+function sumarProducto () {
+    carritoDeCompras.forEach(item=> {
+        document.getElementById(`btnSumar${item.id}`).addEventListener('click', ()=>{
+            console.log("pulso")
+            agregarAlCarrito (item);
+        })})}
+        
+        // document.getElementById(`inputMas`).addEventListener('change', ()=>
+        // console.log(`boton2`,item))
+        
+
 
 // Función para borrar producto del carrito
 function borrarProducto() {
