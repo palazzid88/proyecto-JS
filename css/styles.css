@@ -42,6 +42,10 @@ header {
     padding-right: 10px; 
 }
 
+#carrito {
+    background-color: white;
+}
+
 .carrito_img {
 width: 50px;
 }
@@ -101,6 +105,7 @@ width: 50px;
 }
 
 .button_card {
+    width: auto;
     color: white;
     background-color: blue;
     margin: 10px;
@@ -117,14 +122,16 @@ width: 50px;
 .carrito_flex {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    background-color: white;
     margin: 10px;
     padding: 10px;
     text-align: center;
-    border: 1px solid, white;
-    border-radius: 2px;
+    border: 1px solid, gray;
+}
+
+.div_carrito {
+    border: 1px, solid, gray;
 }
 
 .carrito_info {
@@ -149,7 +156,7 @@ width: 50px;
     padding: 5px;
 }
 
-.total_carrito {
+.div_total {
     background-color: white;
     margin: 10px;
     padding: 10px;

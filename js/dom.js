@@ -8,7 +8,9 @@ let passIngresado;
 let userVerificacion;
 
 // Arrays :
-let carritoDeCompras = [];
+
+// llama al localStorage y trae lo que tiene almacenado en la key carrito, la cual fue asignada en la fx renderizar carrito 
+let carritoDeCompras = JSON.parse(localStorage.getItem("carrito")) || [];
 
 
 // Llamadas al HTML:
@@ -88,7 +90,7 @@ function renderizarCarrito () {
             <h2 class="nombre__carrito">${item.nombre}</h2>
             </div>
             <div class="carrito_cantidad">
-            <p calss="cantidad__carrito">Cantidad: ${item.cantidad}</p>
+            <p calss="cantidad__carrito">Cantidad: ${item.cantidad} Kg</p>
             <button id="btnSumar${item.id}" class="button_card" type="button"> (+) </button>
             </div>
             <div class="carrito_precio">
@@ -100,6 +102,10 @@ function renderizarCarrito () {
 
     alCarrito.appendChild(div);
 })
+
+// Se carga el carrito en el localStorage:
+localStorage.setItem("carrito", JSON.stringify(carritoDeCompras))
+
 sumarProducto ();
 borrarProducto ();
 mostrarTotal ();
@@ -112,8 +118,6 @@ function sumarProducto () {
             agregarAlCarrito (item);
         })})}
         
-        // document.getElementById(`inputMas`).addEventListener('change', ()=>
-        // console.log(`boton2`,item))
         
 
 
@@ -135,12 +139,15 @@ function mostrarTotal() {
     console.log(precioTotal);
     let div = document.createElement('div');
     div.className = 'div_total';
-    div.innerHTML = `<h3 class="total_carrito">Total carrito: $${precioTotal}<h3>`;
+    div.innerHTML = `<h3 class="total_carrito">Total carrito: $${precioTotal}</h3>
+                     <button id="" class="button_card" type="button">Finalizar compra </button>`;
     Total.appendChild(div);
 
 }
     
+// llamado al render de carrito
+renderizarCarrito();
 
-
+// llamado al render Cards
 renderizarCards();
 
