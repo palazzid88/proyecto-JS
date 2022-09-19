@@ -152,4 +152,3 @@ renderizarCarrito();
 
 // llamado al render Cards
 renderizarCards();
-

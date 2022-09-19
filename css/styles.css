@@ -140,6 +140,10 @@ width: 50px;
     align-content: center;
 }
 
+.img_carrito {
+    width: 90px;
+}
+
 .carrito_cantidad {
     display: flex;
     flex-direction: column;
