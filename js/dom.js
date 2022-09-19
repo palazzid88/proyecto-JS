@@ -40,6 +40,7 @@ function renderizarCards () {
                             <p class="parraph__card">${item.descripcion}</p>
                             <p class="parraph__card">$${item.precio}</p>
                             <span id="pedirContraseña${item.id}"><span>
+                            <input type="number" id="cantidad${item.id}" class="cantidad_input" value=1>Kgs
                             <button id="btnAñadir${item.id}" class="button_card" type="button">añadir al carrito</botton>
                         </div>
                     </card>`
@@ -64,7 +65,8 @@ function agregarAlCarrito (item) {
             let existe = carritoDeCompras.some(prod => prod.id === item.id);
             console.log(existe);
             if (existe === false) {
-                item.cantidad = 1;
+            let cantidad = document.getElementById(`cantidad${item.id}`)
+                item.cantidad = cantidad.value;
                 carritoDeCompras.push(item)
             }
             else{
