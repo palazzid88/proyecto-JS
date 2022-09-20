@@ -10,7 +10,7 @@ let userVerificacion;
 // Arrays :
 
 // llama al localStorage y trae lo que tiene almacenado en la key carrito, la cual fue asignada en la fx renderizar carrito 
-let carritoDeCompras = JSON.parse(localStorage.getItem("carrito")) || [];
+let carritoDeCompras = JSON.parse(localStorage.getItem("carrito")) || []; 
 
 
 // Llamadas al HTML:
@@ -27,21 +27,24 @@ function renderizarCards () {
     
     // creo un div con cada uno de los objetos del array
     stockProductos.forEach(item => { 
-    let div = document.createElement('div')
-    div.className = 'div_container'
+    let div = document.createElement('div');
+    div.className = 'div_container';
 
 // Creo código de JS dentro del div
+
+let {img, nombre, descripcion, precio, id} = item;
+
     div.innerHTML = `<card class="card_container">
                         <picture class="card__picture">
-                            <img class="img" src="${item.img}" alt="">
+                            <img class="img" src="${img}" alt="">
                         </picture>
                         <div class="info_card">
-                            <h2 class="title__card">${item.nombre}</h2>
-                            <p class="parraph__card">${item.descripcion}</p>
-                            <p class="parraph__card">$${item.precio}</p>
-                            <span id="pedirContraseña${item.id}"><span>
-                            <input type="number" id="cantidad${item.id}" class="cantidad_input" value=1>Kgs
-                            <button id="btnAñadir${item.id}" class="button_card" type="button">añadir al carrito</botton>
+                            <h2 class="title__card">${nombre}</h2>
+                            <p class="parraph__card">${descripcion}</p>
+                            <p class="parraph__card">$${precio}</p>
+                            <span id="pedirContraseña${id}"><span>
+                            <input type="number" id="cantidad${id}" class="cantidad_input" value=1>Kgs
+                            <button id="btnAñadir${id}" class="button_card" type="button">añadir al carrito</botton>
                         </div>
                     </card>`
 
@@ -55,7 +58,7 @@ añadirFuncionBtn ();
 function añadirFuncionBtn () {
     stockProductos.forEach(item=> {
         document.getElementById(`btnAñadir${item.id}`).addEventListener(`click`, ()=> {
-            agregarAlCarrito (item)
+            agregarAlCarrito (item);
         })
     })
 }
@@ -65,12 +68,12 @@ function agregarAlCarrito (item) {
             let existe = carritoDeCompras.some(prod => prod.id === item.id);
             console.log(existe);
             if (existe === false) {
-            let cantidad = document.getElementById(`cantidad${item.id}`)
+            let cantidad = document.getElementById(`cantidad${item.id}`);
                 item.cantidad = cantidad.value;
-                carritoDeCompras.push(item)
+                carritoDeCompras.push(item);
             }
             else{
-                let incrCant = carritoDeCompras.find(prod => prod.id === item.id)
+                let incrCant = carritoDeCompras.find(prod => prod.id === item.id);
                 incrCant.cantidad++;
             }
 console.log(carritoDeCompras);
@@ -83,21 +86,24 @@ function renderizarCarrito () {
     alCarrito.innerHTML =""
     carritoDeCompras.forEach(item=>{
         let valorSuma = `${item.precio * item.cantidad}`
+
+        let {img, nombre, cantidad, id, precio} = item;
+
         let div = document.createElement('div');
         div.className = 'div_carrito'
         div.innerHTML = `<div class="carrito_flex">
         <div class="carrito_info">
             <picture class="carrito__picture">
-                <img class="img_carrito" src="${item.img}" alt="">
+                <img class="img_carrito" src="${img}" alt="">
             </picture>
-            <h2 class="nombre__carrito">${item.nombre}</h2>
+            <h2 class="nombre__carrito">${nombre}</h2>
             </div>
             <div class="carrito_cantidad">
-            <p calss="cantidad__carrito">Cantidad: ${item.cantidad} Kg</p>
-            <button id="btnSumar${item.id}" class="button_card" type="button"> (+) </button>
+            <p calss="cantidad__carrito">Cantidad: ${cantidad} Kg</p>
+            <button id="btnSumar${id}" class="button_card" type="button"> (+) </button>
             </div>
             <div class="carrito_precio">
-            <p class="precio_carrito">precio-Kg: $${item.precio}</p>
+            <p class="precio_carrito">precio-Kg: $${precio}</p>
             <p class="precio_total">total: $${valorSuma}</p>
         </div>
         <button id="btnEliminar${item.id}" class="button_card" type="button">eliminar carrito </button>
@@ -107,7 +113,7 @@ function renderizarCarrito () {
 })
 
 // Se carga el carrito en el localStorage:
-localStorage.setItem("carrito", JSON.stringify(carritoDeCompras))
+localStorage.setItem("carrito", JSON.stringify(carritoDeCompras));
 
 sumarProducto ();
 borrarProducto ();
@@ -117,7 +123,7 @@ mostrarTotal ();
 function sumarProducto () {
     carritoDeCompras.forEach(item=> {
         document.getElementById(`btnSumar${item.id}`).addEventListener('click', ()=>{
-            console.log("pulso")
+            console.log("pulso");
             agregarAlCarrito (item);
         })})}
         
