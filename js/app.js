@@ -79,6 +79,7 @@ renderizarCarrito ();
 
 // Funcion renderizar carrito de compras
 function renderizarCarrito () {
+    
     alCarrito.innerHTML =""
     carritoDeCompras.forEach(item=>{
         let valorSuma = `${item.precio * item.cantidad}`
@@ -136,6 +137,7 @@ function borrarProducto() {
 
 // Función Mostrar el Total 
 function mostrarTotal() {
+    
     Total.innerHTML= "";
     let precioTotal = carritoDeCompras.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
     console.log(precioTotal);
