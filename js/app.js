@@ -6,6 +6,7 @@ let validacion;
 let userIngresado;
 let passIngresado;
 let userVerificacion;
+let productoFiltrado=[];
 
 // Arrays :
 
@@ -62,6 +63,17 @@ function añadirFuncionBtn () {
         })
     })
 }
+
+function buscadorPorInput () {
+    let filtrar = document.getElementById("btn_buscador").addEventListener(`click`, ()=> {
+        let productoInput = document.getElementById("ingreso_buscador").value;
+        productoFiltrado = stockProductos.filter(prod => prod.nombre === productoInput) 
+        console.log(productoFiltrado);
+
+    })
+}
+
+buscadorPorInput ();
 
 // agregaral carrito, se fija en el array si el producto existe 
 function agregarAlCarrito (item) {
