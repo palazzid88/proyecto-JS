@@ -22,23 +22,24 @@
             </ul>
         </nav>
     </header>
-    
-<form class="form_login">
-    <input type="text" name="user" id="user_log" placeholder="Ingrese nombre de usuario">
-    <input type="password" name="pass" id="pass_log" placeholder="Ingrese contraseña">
-    <button type="button" id="btn_log">Login</button>
-    <span class="userValidacion" id="userValidacion"></span>
-</form>
-
-<div id="buscador">
-    <input type="text" id="ingreso_buscador">
-    <button type="button" id="btn_buscador">Buscar</button>
-
+<section id="id_buscador" class="div_buscador">
+<div class="buscador_prod" id="buscador_prod"> 
+    <div class="">
+        <h4 class="subtitulo_buscador">¿Que estás buscando?</h4>
+        <input type="text" id="ingreso_buscador" placeholder="ej: banana">
+    </div>
+        <button type="button" id="btn_buscador" class="button_card">Buscar</button>
+</div>
+<!-- div boton para mostrar stock de todos los productos -->
+<div id="mostrar_productos" class="mostrar_prod" >
 </div>
 
+</section>
+<!-- contenedor para renderizar las cards de JS -->
 <main id="main_container">
 </main>
 
+<!-- contenedor carrito -->
 <div id="carrito">
 </div>
 

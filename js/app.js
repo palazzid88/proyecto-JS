@@ -1,10 +1,10 @@
 
 // Variables:
-let user = "a";
-let pass = 1;
-let validacion;
-let userIngresado;
-let passIngresado;
+// let user = "a";
+// let pass = 1;
+// let validacion;
+// let userIngresado;
+// let passIngresado;
 let userVerificacion;
 let productoFiltrado=[];
 
@@ -16,7 +16,6 @@ let carritoDeCompras = JSON.parse(localStorage.getItem("carrito")) || [];
 
 // Llamadas al HTML:
 
-let contenedor = document.getElementById("main_container");
 let alCarrito = document.getElementById("carrito");
 let Total = document.getElementById("total");
 
@@ -24,10 +23,11 @@ let Total = document.getElementById("total");
 
 
 // Función para renderizar cardsen DOM
-function renderizarCards () {
-    
+function renderizarCards (prod) {
+    let contenedor = document.getElementById("main_container");
+    contenedor.innerHTML = "";
     // creo un div con cada uno de los objetos del array
-    stockProductos.forEach(item => { 
+    prod.forEach(item => { 
     let div = document.createElement('div');
     div.className = 'div_container';
 
@@ -52,12 +52,12 @@ let {img, nombre, descripcion, precio, id} = item;
 // Añado el código al cotenedor 
 contenedor.appendChild(div);
 })
-añadirFuncionBtn (); 
+añadirFuncionBtn (prod); 
 }
 
 //llamo a la funcion click en btn
-function añadirFuncionBtn () {
-    stockProductos.forEach(item=> {
+function añadirFuncionBtn (prod) {
+    prod.forEach(item=> {
         document.getElementById(`btnAñadir${item.id}`).addEventListener(`click`, ()=> {
             agregarAlCarrito (item);
         })
@@ -67,9 +67,36 @@ function añadirFuncionBtn () {
 function buscadorPorInput () {
     let filtrar = document.getElementById("btn_buscador").addEventListener(`click`, ()=> {
         let productoInput = document.getElementById("ingreso_buscador").value;
-        productoFiltrado = stockProductos.filter(prod => prod.nombre === productoInput) 
+        productoFiltrado = stockProductos.filter(prod => prod.nombre.includes(productoInput))
         console.log(productoFiltrado);
+        renderizarCards(productoFiltrado);
+        botonStock();
+        renderizarPorInput ();
 
+
+    })
+}
+
+function botonStock () {
+    let contenedor = document.getElementById("mostrar_productos");
+    contenedor.innerHTML = "";
+    let div = document.createElement ('div');
+    div.className = 'mostrar_stock'
+
+    div.innerHTML = `<div id="mostrar_procuctos" class="mostrar_prod" >
+    <span>Ver todos los productos</span>
+    <button type="button" id="btn_stock" class="button_card">click aquí</button>
+                    </div>`
+
+contenedor.appendChild(div);
+// contenedor.innerHTML = "";
+
+
+}
+
+function renderizarPorInput () {
+    let mostrarStock = document.getElementById("btn_stock").addEventListener(`click`, ()=> {
+        renderizarCards(stockProductos)
     })
 }
 
@@ -171,4 +198,4 @@ function mostrarTotal() {
 renderizarCarrito();
 
 // llamado al render Cards
-renderizarCards();
+renderizarCards(stockProductos);

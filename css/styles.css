@@ -61,14 +61,43 @@ width: 50px;
 
 /*BODY*/
 
-.form_login {
+.div_buscador {
     background-color: white;
     margin: 10px;
     padding: 10px;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    border-radius: 10px;
+    box-shadow: 6px 10px 10px grey;
+
+}
+
+.buscador_prod {
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* margin: 10px; */
+    padding: 10px 10px;
+}
+
+
+.titulo_buscador, 
+.subtitulo_buscador, 
+.ingreso_buscador,
+.btn_buscador {
+    padding: 10px;
+} 
+
+.mostrar_prod {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    padding: 5px;
 }
 
 .userValidacion {
