@@ -18,6 +18,7 @@ let carritoDeCompras = JSON.parse(localStorage.getItem("carrito")) || [];
 
 let alCarrito = document.getElementById("carrito");
 let Total = document.getElementById("total");
+// let vaciarCarrito = document.getElementById("")
 
 
 
@@ -145,7 +146,7 @@ function renderizarCarrito () {
             <p class="precio_carrito">precio-Kg: $${precio}</p>
             <p class="precio_total">total: $${valorSuma}</p>
         </div>
-        <button id="btnEliminar${item.id}" class="button_card" type="button">eliminar carrito </button>
+        <button id="btnEliminar${item.id}" class="button_card" type="button">eliminar</button>
     </div>`
 
     alCarrito.appendChild(div);
@@ -157,6 +158,8 @@ localStorage.setItem("carrito", JSON.stringify(carritoDeCompras));
 sumarProducto ();
 borrarProducto ();
 mostrarTotal ();
+vaciarCarrito();
+
 }
 
 function sumarProducto () {
@@ -180,6 +183,9 @@ function borrarProducto() {
     })
 }
 
+
+    
+
 // Función Mostrar el Total 
 function mostrarTotal() {
     
@@ -189,13 +195,49 @@ function mostrarTotal() {
     let div = document.createElement('div');
     div.className = 'div_total';
     div.innerHTML = `<h3 class="total_carrito">Total carrito: $${precioTotal}</h3>
-                     <button id="" class="button_card" type="button">Finalizar compra </button>`;
+                     <button id="" class="button_card" type="button">Finalizar compra </button>
+                     <button id="btn_vaciar" class="button_card" type="button">Vaciar Carrito </button>`;
+                     
     Total.appendChild(div);
 
 }
-    
+
+
+
+
+
+// funcion con boton para vaciar la totalidad del contenido del array carrito.
+function vaciarCarrito () {
+    let vaciar = document.getElementById("btn_vaciar").addEventListener("click", ()=> {
+        Swal.fire({
+            title: 'Seguro?',
+            text: "Está seguro que desea eliminar su compra!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, borrar!',
+            cancelButtonText: 'cancelar'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                let indice = carritoDeCompras.length
+                console.log(indice);
+                carritoDeCompras.splice(0,indice);
+                renderizarCarrito();        
+              Swal.fire(
+                'vacío!',
+                'Su carrito se a vaciado!.',
+                'Guardado'
+              )
+            }
+          })
+    })
+}
+
+
 // llamado al render de carrito
 renderizarCarrito();
+
 
 // llamado al render Cards
 renderizarCards(stockProductos);

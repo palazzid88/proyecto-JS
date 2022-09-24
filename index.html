@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href=".\css\styles.css">
     <title>Desde la huerta a tu casa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 <body>
     <header class="header">
         <nav class="header__nav">
-            <h1 class="title">De la huerta a tu casa</h1>
+            <h1 class="animate__animated animate__bounce animate__backInLeft">De la huerta a tu casa</h1>
             <ul class="ul__nav">
                 <li class="li__ul">Inicio</li>
                 <li class="li__ul">Productos</li>
@@ -25,7 +27,7 @@
 <section id="id_buscador" class="div_buscador">
 <div class="buscador_prod" id="buscador_prod"> 
     <div class="">
-        <h4 class="subtitulo_buscador">¿Que estás buscando?</h4>
+        <h4 class="subtitulo_buscador animate__animated animate__shakeX  animate__delay-2s">¿Que estás buscando?</h4>
         <input type="text" id="ingreso_buscador" placeholder="ej: banana">
     </div>
         <button type="button" id="btn_buscador" class="button_card">Buscar</button>
@@ -48,6 +50,6 @@
     <script src="./js/stock.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/log.js"></script>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
