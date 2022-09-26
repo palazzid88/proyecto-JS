@@ -56,6 +56,12 @@ width: 50px;
     width: 50px;
 }
 
+.btn_carrito {
+    background-color: lightgreen;
+    border: 1px solid lightgreen;
+
+}
+
 .input_cantidad {
     width: 40px;
 }
