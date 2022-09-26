@@ -61,6 +61,22 @@ function añadirFuncionBtn (prod) {
     prod.forEach(item=> {
         document.getElementById(`btnAñadir${item.id}`).addEventListener(`click`, ()=> {
             agregarAlCarrito (item);
+
+//Llamado a notificación Toastify
+            Toastify({
+                text: "Producto añadido al carrito",
+                duration: 2000,
+                // destination: "https://github.com/apvarun/toastify-js",
+                // newWindow: true,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "linear-gradient(to right, #ff4400, #80bb0f, #00d4ff)",
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
         })
     })
 }
@@ -73,6 +89,7 @@ function buscadorPorInput () {
         renderizarCards(productoFiltrado);
         botonStock();
         renderizarPorInput ();
+
 
 
     })
@@ -136,17 +153,16 @@ function renderizarCarrito () {
             <picture class="carrito__picture">
                 <img class="img_carrito" src="${img}" alt="">
             </picture>
-            <h2 class="nombre__carrito">${nombre}</h2>
+            <h4 class="nombre__carrito">${nombre}</h4>
             </div>
             <div class="carrito_cantidad">
-            <p calss="cantidad__carrito">Cantidad: ${cantidad} Kg</p>
-            <button id="btnSumar${id}" class="button_card" type="button"> (+) </button>
+                <p calss="cantidad__carrito">${cantidad} Kg</p>
+                <button id="btnSumar${id}" class="button_cardSumar" type="button"> (+) </button>
             </div>
             <div class="carrito_precio">
-            <p class="precio_carrito">precio-Kg: $${precio}</p>
-            <p class="precio_total">total: $${valorSuma}</p>
-        </div>
-        <button id="btnEliminar${item.id}" class="button_card" type="button">eliminar</button>
+                <p class="precio_total">total: $${valorSuma}</p>
+                <button id="btnEliminar${item.id}" class="button_cardEliminar" type="button">X</button>
+            </div>
     </div>`
 
     alCarrito.appendChild(div);
