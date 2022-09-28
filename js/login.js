@@ -12,8 +12,8 @@ ingreso();
 
 function ingreso () {
     btn_log = document.getElementById('btn_login').addEventListener('click', ()=> {
-    userIngresado = document.getElementById("user_log").value;
-    passIngresado = document.getElementById("pass_log").value;
+    userIngresado = document.getElementById('user_log').value;
+    passIngresado = document.getElementById('pass_log').value;
     console.log(userIngresado);
     console.log(passIngresado);
 
