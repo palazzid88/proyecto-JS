@@ -13,47 +13,56 @@
 </head>
 <body>
     <header class="header">
-
-        <nav class="navbar navbar-expand-md navegador">
+        
+        
+        
+        <nav class="navbar navbar-expand-lg bg-light ">
+            <a class="navbar-brand" href="#"></a>
             <div class="container-fluid">
-              <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#MenuNavegacion">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div id="MenuNavegacion" class="collapse navbar-collapse justify-content-end nav__ul">
-                <h1 class="animate__animated animate__bounce animate__backInLeft">De la huerta a tu casa</h1>
-                <ul class="navbar-nav ms-3 ul__li">
-                    <li class="li__ul">Inicio</li>
-                    <li class="li__ul">Productos</li>
-                    <li class="li__ul">Login</li>
-                    <li class="li__ul">Ingreso</li>                  
-            </ul>|
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+            </button>
+            <button class="btn btn-primary btn_carrito" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                  <img class="carrito_img" src="./img/carrito.png" alt=""> 
+                  <span id="contador" class="contador_carrito">0</span>
+            </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Login</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Productos
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a id="filtro_frutas" class="dropdown-item" href="#">Frutas</a></li>
+                  <li><a id="filtro_verduras" class="dropdown-item" href="#">Verduras</a></li>
+                  <li><a id="filtro_especias" class="dropdown-item" href="#">Especias</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a id="render_cards" class="dropdown-item" href="#">Todos los productos</a></li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <h6 class="subtitulo_buscador animate__animated animate__shakeX  animate__delay-2s">¿Que estás buscando?</h6>
+                <input id="ingreso_buscador" class="form-control me-2" type="text" placeholder="manzana" aria-label="Search">
+                <button id="btn_buscador" class="btn btn-outline-success" type="button">Buscar</button>
+            </form>
         </div>
-        <button class="btn btn-primary btn_carrito" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-            <img class="carrito_img" src="./img/carrito.png" alt=""> 
-        </button>
-            </div>
-          </nav>
+        </div>
+      </nav>
     </header>
-<section id="id_buscador" class="div_buscador">
-<div class="buscador_prod" id="buscador_prod"> 
-    <div class="">
-        <h4 class="subtitulo_buscador animate__animated animate__shakeX  animate__delay-2s">¿Que estás buscando?</h4>
-        <input type="text" id="ingreso_buscador" placeholder="ej: banana">
-    </div>
-        <button type="button" id="btn_buscador" class="button_card">Buscar</button>
-</div>
-<!-- div boton para mostrar stock de todos los productos -->
-<div id="mostrar_productos" class="mostrar_prod" >
-</div>
 
-</section>
-<!-- contenedor para renderizar las cards de JS -->
+    <!--contenedor para renderizar las cards de JS -->
+
 <main id="main_container">
 </main>
 
 <!-- contenedor carrito -->
-
-
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
     <div class="offcanvas-header">
         <h5 class="offcanvas-title" id="offcanvasRightLabel">Carrito de compras</h5>
@@ -63,9 +72,7 @@
         <div id="carrito">
         </div>
         <div id="total">
-        </div>
-    </div>
-</div>
+
 <footer>
     
 </footer>
@@ -78,7 +85,7 @@
 <!--Javascrips-->
 <script src="./js/stock.js"></script>
 <script src="./js/app.js"></script>
-<script src="./js/log.js"></script>
+<script src="./js/login.js"></script>
 </body>
 </html>
 
