@@ -80,7 +80,7 @@ function añadirFuncionBtn (prod) {
 // funcion de buscador de navbar
 function buscadorPorInput () {
     filtrar.addEventListener(`click`, ()=> {
-        let productoInput = document.getElementById("ingreso_buscador").value;
+        let productoInput = document.getElementById("ingreso_buscador").value.toLowerCase();
         productoFiltrado = stockProductos.filter(prod => prod.nombre.includes(productoInput))
         renderizarCards(productoFiltrado);
     })
