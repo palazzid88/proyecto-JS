@@ -1,11 +1,21 @@
 // Funcion Login
 
+//variables
+let user = "a@mail.com";
+let pass = "a";
+let validacion;
+let userIngresado;
+let passIngresado;
+let btn_log;
+
+ingreso();
+
 function ingreso () {
-    let btn_log = document.getElementById('btn_log');
-    btn_log.addEventListener('click', ()=> {
-    userIngresado = document.getElementById('user_log').value;
-    passIngresado = document.getElementById('pass_log').value;
-    
+    btn_log = document.getElementById('btn_login').addEventListener('click', ()=> {
+    userIngresado = document.getElementById("user_log").value;
+    passIngresado = document.getElementById("pass_log").value;
+    console.log(userIngresado);
+    console.log(passIngresado);
 
     for (i=0; i<3; i++) {
         if (userIngresado == user && pass == passIngresado) {
@@ -30,14 +40,16 @@ console.log("superó el límite de intentos")
 
 // Muestra Resultado de login correcto o incorrecto
 function mostrarLogin () {
-    userVerificacion = document.getElementById('userValidacion')
+    // userVerificacion = document.getElementById('userValidacion')
     if(validacion) {
-        userVerificacion.innerText = "Login Correcto!"
+        // userVerificacion.innerText = "Login Correcto!"
+    alert("ingreso correcto")
     }
     else{
-    userVerificacion.innerText = 
-    `Datos invalidos
-     Ingrese nuevamente`;
-    console.log("usuario incorrecto");
+    alert("incorrecto")
+    // userVerificacion.innerText = 
+    // `Datos invalidos
+    //  Ingrese nuevamente`;
+    // console.log("usuario incorrecto");
     }
 }
