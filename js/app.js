@@ -19,8 +19,13 @@ let filtrar = document.getElementById("btn_buscador")
 
 
 
-
-
+//llamado por fetch a la URL local
+fetch('./js/stock.json') //=> ubicacion de stock productos formateado a json
+.then(res=> res.json())
+.then(data=>{
+    console.log(data)
+    renderizarCards(data);
+})
 // Función para renderizar cards en DOM
 function renderizarCards (prod) {
     contenedor.innerHTML = "";
@@ -51,6 +56,7 @@ contenedor.appendChild(div);
 })
 añadirFuncionBtn (prod); 
 }
+
 
 //llamo a la funcion click en "añadir al carrito"
 function añadirFuncionBtn (prod) {
@@ -264,7 +270,7 @@ renderizarCarrito();
 
 
 // llamado al render Cards
-renderizarCards(stockProductos);
+renderizarCards();
 
 
 
