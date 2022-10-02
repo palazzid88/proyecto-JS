@@ -282,6 +282,23 @@ width: 50px;
     width: 40px;
 }
 
+/*FOOTER*/
+
+.footer {
+    font-family: "Mulish", sans-serif;
+    max-width: 1200px;
+    font-size: 17px;
+    margin: 0 auto;
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: none;
+    gap: 10px;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    text-align: center; }
+
 /*Login HTML*/
 
 .card_form {

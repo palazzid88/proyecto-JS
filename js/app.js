@@ -95,9 +95,8 @@ function filtroProductos() {
     })
 }
 
-// función renderizar filtro productos desde navbar frutas
 fitrarPorFruta ();
-
+// función renderizar filtro productos desde navbar frutas
 function fitrarPorFruta () {
     let seleccion = document.getElementById('filtro_frutas').addEventListener('click', ()=> {
         filtroTipo = stockProductos.filter(prod => prod.tipo === "fruta");
@@ -125,7 +124,6 @@ function fitrarPorEspecias () {
 
 
 buscadorPorInput ();
-
 // agregar al carrito, se fija en el array si el producto existe 
 function agregarAlCarrito (item) {
             let existe = carritoDeCompras.some(prod => prod.id === item.id);
@@ -149,7 +147,7 @@ function renderizarCarrito () {
     carritoDeCompras.forEach(item=>{
         let valorSuma = `${item.precio * item.cantidad}`
 
-        let {img, nombre, cantidad, id, precio} = item;
+        let {img, nombre, cantidad, id, precio, unidad} = item;
 
         let div = document.createElement('div');
         div.className = 'div_carrito'
@@ -161,7 +159,7 @@ function renderizarCarrito () {
             <h4 class="nombre__carrito">${nombre}</h4>
             </div>
             <div class="carrito_cantidad">
-                <p calss="cantidad__carrito">${cantidad} Kg</p>
+                <p calss="cantidad__carrito">${cantidad} ${unidad}</p>
                 <button id="btnSumar${id}" class="button_cardSumar" type="button"> (+) </button>
             </div>
             <div class="carrito_precio">

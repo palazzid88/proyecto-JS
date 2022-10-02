@@ -12,10 +12,10 @@ let stockProductos = [
     {id: 8, nombre: "zanahoria", tipo: "verdura", descripcion: "zanahoria", precio: 250, unidad: "kg", img: './img/zanahoria.jpg'},
     {id: 9, nombre: "cebolla", tipo: "verdura", descripcion: "cebolla", precio: 260, unidad: "kg", img: './img/cebolla.jpg'},
     {id: 10, nombre: "manzana verde", tipo: "fruta", descripcion: "Manzana Verde", precio: 320, unidad: "kg", img: './img/manzanaVerde.jpg'},
-    {id: 11, nombre: "pimiento Rojo", tipo: "verdura", descripcion: "Pimiento Rojo", precio: 340, unidad: "kg", img: './img/pimientoRojo.jpg'},
-    {id: 12, nombre: "orégano", tipo: "especias", descripcion: "Condimento", precio: 260, unidad: "gr", img: './img/oregano.jpg'},
-    {id: 13, nombre: "pimienta blanca", tipo: "especias", descripcion: "Pimienta Blanca", precio: 260, unidad: "gr", img: './img/pimientab.jpg'},
+    {id: 11, nombre: "pimiento Rojo", tipo: "verdura", descripcion: "Pimiento Rojo", precio: 340, unidad: "Kg", img: './img/pimientoRojo.jpg'},
+    {id: 12, nombre: "orégano", tipo: "especias", descripcion: "1 Un = 50 gr", precio: 120, unidad: "Un", img: './img/oregano.jpg'},
+    {id: 13, nombre: "pimienta blanca", tipo: "especias", descripcion: "1 Un = 50 gr", precio: 120, unidad: "Un", img: './img/pimientab.jpg'},
     {id: 14, nombre: "cereza", tipo: "fruta", descripcion: "cerazas", precio: 260, unidad: "kg", img: './img/cereza.jpg'},
-    {id: 15, nombre: "canela", tipo: "especias", descripcion: "canela", precio: 260, unidad: "kg", img: './img/canela.jpg'},
+    {id: 15, nombre: "canela", tipo: "especias", descripcion: "1 Un = 100 gr", precio: 260, unidad: "Un", img: './img/canela.jpg'},
 ]
 
