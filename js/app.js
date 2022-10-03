@@ -270,7 +270,7 @@ renderizarCarrito();
 
 
 // llamado al render Cards
-renderizarCards();
+// renderizarCards(data);
 
 
 
