@@ -228,7 +228,7 @@ function mostrarTotal() {
     div.className = 'div_total';
     div.innerHTML = `<h3 class="total_carrito">Total carrito: $${precioTotal}</h3>
                      <button id="finalizar_compra" class="button_card" type="button">
-                        <a href="../paginas/final.html" class="button_card">Finalizar compra!</a>
+                        <a href="../pg/final.html" class="button_card">Finalizar compra!</a>
                      </button>
                      <button id="btn_vaciar" class="button_card" type="button">Vaciar Carrito </button>`;
                      
