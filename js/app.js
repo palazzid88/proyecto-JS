@@ -3,6 +3,7 @@
 
 let userVerificacion;
 let productoFiltrado=[];
+let valorSuma;
 
 // Arrays :
 // llama al localStorage y trae lo que tiene almacenado en la key carrito, la cual fue asignada en la fx renderizar carrito 
@@ -151,7 +152,7 @@ function renderizarCarrito () {
     
     alCarrito.innerHTML =""
     carritoDeCompras.forEach(item=>{
-        let valorSuma = `${item.precio * item.cantidad}`
+    valorSuma = `${item.precio * item.cantidad}`
 
         let {img, nombre, cantidad, id, precio, unidad} = item;
 
@@ -173,6 +174,8 @@ function renderizarCarrito () {
                 <button id="btnEliminar${item.id}" class="button_cardEliminar" type="button">X</button>
             </div>
     </div>`
+
+
 
     
     alCarrito.appendChild(div);
@@ -225,7 +228,7 @@ function mostrarTotal() {
     div.className = 'div_total';
     div.innerHTML = `<h3 class="total_carrito">Total carrito: $${precioTotal}</h3>
                      <button id="finalizar_compra" class="button_card" type="button">
-                        <a href="../pages/login.html" class="button_card">Finalizar compra!<a>
+                        <a href="../pages/register.html" class="button_card">Finalizar compra!<a>
                      </button>
                      <button id="btn_vaciar" class="button_card" type="button">Vaciar Carrito </button>`;
                      

@@ -36,17 +36,17 @@ function ingreso () {
               
               Toast.fire({
                 icon: 'success',
-                title: 'Acceso validado'
+                title: 'Acceso validado',
               })
 
-            // mostrarLogin ()
+            mostrarLogin ()
             // break;
         }
         else {
             validacion = false;
             console.log(validacion);
             console.log("usuario invalido");
-            // mostrarLogin ();
+            mostrarLogin ();
 
             const Toast = Swal.mixin({
                 toast: true,
@@ -74,6 +74,7 @@ function ingreso () {
 
 // Muestra Resultado de login correcto o incorrecto
 function mostrarLogin () {
+  console.log(validacion)
     userVerificacion = document.getElementById('userValidacion')
     if(validacion) {
         userVerificacion.innerText = "Login Correcto!"

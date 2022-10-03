@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..\css\styles.css">
+    <title>Register</title>
+</head>
+<body class="body_delivery">
+<main>
+    <div class="precio_total">
+        <h4 class="" id="total-a-pagar" ></h4>
+    </div>
+    <section class="section_delivery">
+        <div>
+            <div class="div_delivery">
+                <h4 class="titulo_delivery">Ingrese sus datos personales para programar el envío a domicilio:</h4>
+            </div>
+            <div>
+                <form class="row g-3 form_flex card_form">
+                    <div class="col-md-6 form_register">
+                    <label for="inputEmail4" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail4">
+                    </div>
+                    <div class="col-12 form_register">
+                        <label for="inputFirstName" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="inputFirstName" placeholder="Sebastián">
+                    </div>
+                    <div class="col-12 form_register">
+                        <label for="inputSecondName" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="inputSecondName" placeholder="Gómez">
+                    </div>
+                    <div class="col-12 form_register">
+                        <label for="inputcellpone" class="form-label">Celular</label>
+                        <input type="number" class="form-control" id="inputCellphone" placeholder="celular sin 0 y 15">
+                    </div>
+                    <div class="col-12 form_register">
+                        <label for="inputAddress" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="inputAddress" placeholder="San Martín">
+                    </div>
+                    <div class="col-12 form_register">
+                        <label for="inputAddress" class="form-label">Altura</label>
+                        <input type="number" class="form-control" id="inputAddresNumber" placeholder="1234">
+                    </div>
+                    <div class="col-auto form-register">
+                        <label class="visually-hidden form-control" for="autoSizingSelect">Día de envío</label>
+                        <select class="form-select" id="autoSizingSelectDay">
+                            <option selected>día...</option>
+                            <option value="lunes">Lunes</option>
+                            <option value="martes">Martes</option>
+                            <option value="miércoles">Miércoles</option>
+                            <option value="jueves">jueves</option>
+                            <option value="viernes">Viernes</option>
+                            <option value="sábado">Sábado</option>
+                        </select>
+                    </div>
+                    <div class="col-auto form-register">
+                        <label class="visually-hidden form-control" for="autoSizingSelect">Hora de envío</label>
+                        <select class="form-select" id="autoSizingSelectHora">
+                            <option selected>hora...</option>
+                            <option value="7:00">7:00</option>
+                            <option value="8:00">8:00</option>
+                            <option value="9:00">9:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" id="btn_pedido" class="btn btn-primary button_card">Realizar pedido</button>
+                    </div>
+                    <div class="col-12">
+                        <button type="button" id="btn_regresar" class="btn btn-primary button_card btn_login_verde">
+                            <a href="../index.html" class="">Regresar</a>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="div_delivery">
+            <img src="../img/delivery.jpg" class="img_delivery" alt="">
+        </div>
+        <button class="btn_card">
+            <a href="../index.html"></a>
+        </button>
+    </section>
+    <div class="final" id="final">
+    </div>
+</main>
+<footer class="footer">
+    <div class="titular">
+      <p>- e-mail: delahuertaatucasa@mail.com - Fb: delahuerta@Facebook.com - Ig: @delahuerta - 
+      </p>
+      <p> - whatsapp: 54********** - Provincia de Buenos Aires - San Nicolás de los Arroyos - </p>
+    </div>
+    <div class="desarrollador">
+      <p>
+        - web design by Palazzi David - wtp: +543364309084-
+      </p>
+    </div>            
+  </footer>
+  
+<script src="../js/log.js"></script>
+</body>
+</html>

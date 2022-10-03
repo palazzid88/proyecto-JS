@@ -299,16 +299,33 @@ width: 50px;
     color: white;
     text-align: center; }
 
+
+
 /*Login HTML*/
 
-.card_form {
-    background-color: white;
+
+.main_login{
+    margin-top: 100px;
+    margin-bottom: 100px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_form{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: flex-end;
     margin: 10px;
     padding: 10px;
-    width: 250px;
+    border: 2px solid gray;
+    border-radius: 10px;
 }
 
 .form_data {
@@ -316,5 +333,59 @@ width: 50px;
     flex-direction: column;
     flex-wrap: wrap;
     margin: 10px;
-    /* padding: 10px; */
+}
+
+.btn_login_azul {
+    background-color: blue;
+}
+.btn_login_verde {
+    background-color: green;
+}
+.btn_login_rojo {
+    background-color: red;
+}
+
+.btn_push {
+    color: white;
+}
+
+/*Register.html*/
+
+.body_delivery{
+    background-image: url("../img/huerta.jpg");
+    background-size: contain;
+}
+.form_register{
+    margin: 2px;
+    padding: 1px;
+}
+
+
+.div_delivery {
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid grey;
+    border-radius: 10px;
+
+}
+
+.section_delivery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    justify-content: center;
+}
+
+.img_delivery { 
+    width: 100%;
+}
+
+.titulo_delivery{
+    margin: auto;
 }
