@@ -9,6 +9,7 @@ let altura = document.getElementById('inputAddresNumber');
 let dia = document.getElementById('autoSizingSelectDay');
 let hora = document.getElementById('autoSizingSelectHora'); 
 let total = document.getElementById('total-a-pagar');
+let pedido;
 
 // import { valorSuma } from './app.js'
 // console.log(valorSuma);
@@ -17,7 +18,7 @@ let total = document.getElementById('total-a-pagar');
 //   total.innerText = `${valorSuma}`; 
 // }
 function pedir () {
-  let pedido = document.getElementById('btn_pedido').addEventListener('click', ()=> {
+  pedido = document.getElementById('btn_pedido').addEventListener('click', ()=> {
     console.log(email.value, nombre.value ,apellido.value, celular.value, direccion.value, altura.value, dia.value, hora.value) 
     renderizarPedido ();
   })

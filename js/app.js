@@ -10,6 +10,9 @@ let valorSuma;
 let carritoDeCompras = JSON.parse(localStorage.getItem("carrito")) || []; 
 
 
+
+
+
 // Llamadas al HTML:
 
 let alCarrito = document.getElementById("carrito");
@@ -18,7 +21,11 @@ let contadorCarrito = document.getElementById('contador');
 let contenedor = document.getElementById("main_container");
 let filtrar; 
 
+
+
 llamadoAlFetch ();
+
+
 
 function llamadoAlFetch () {
 fetch('./js/stock.json') //=> ubicacion de stock productos formateado a json
@@ -28,17 +35,15 @@ fetch('./js/stock.json') //=> ubicacion de stock productos formateado a json
     renderizarCards(data);
 })}
 
+
+
 // Función para renderizar cards en DOM
 function renderizarCards (prod) {
     contenedor.innerHTML = "";
     prod.forEach(item => { 
     let div = document.createElement('div');
     div.className = 'div_container';
-
-// Creo código de JS dentro del div
-
 let {img, nombre, descripcion, precio, id, unidad} = item;
-
     div.innerHTML = `<card class="card_container">
                         <picture class="card__picture">
                             <img class="img" src="${img}" alt="">
@@ -51,27 +56,22 @@ let {img, nombre, descripcion, precio, id, unidad} = item;
                             <input type="number" id="cantidad${id}" class="cantidad_input" value=1>${unidad}
                             <button id="btnAñadir${id}" class="button_card" type="button">añadir al carrito</botton>
                         </div>
-                    </card>`
-
-// Añado el código al cotenedor 
+                    </card>` 
 contenedor.appendChild(div);
 })
 añadirFuncionBtn (prod); 
 }
 
 
-//llamo a la funcion click en "añadir al carrito"
+//Funcion click en "añadir al carrito"
 function añadirFuncionBtn (prod) {
     prod.forEach(item=> {
         document.getElementById(`btnAñadir${item.id}`).addEventListener(`click`, ()=> {
             agregarAlCarrito (item);
-
-//Llamado a notificación Toastify
+            //Llamado a notificación Toastify
             Toastify({
                 text: "Producto añadido al carrito",
                 duration: 2000,
-                // destination: "https://github.com/apvarun/toastify-js",
-                // newWindow: true,
                 close: true,
                 gravity: "top", // `top` or `bottom`
                 position: "center", // `left`, `center` or `right`
@@ -79,11 +79,14 @@ function añadirFuncionBtn (prod) {
                 style: {
                   background: "linear-gradient(to right, #ff4400, #80bb0f, #00d4ff)",
                 },
-                onClick: function(){} // Callback after click
+                onClick: function(){}
               }).showToast();
         })
     })
 }
+
+buscadorPorInput();
+
 
 // funcion de buscador de navbar
 function buscadorPorInput () {
@@ -91,48 +94,64 @@ function buscadorPorInput () {
         let productoInput = document.getElementById("ingreso_buscador").value.toLowerCase();
         console.log(productoInput)    
     fetch('./js/stock.json') //=> ubicacion de stock productos formateado a json
-    .then(res=> res.json())
-    .then(data=>{ 
-        console.log('hola', data);
-    productoFiltrado = data.filter(prod => prod.nombre.includes(productoInput))
-    console.log(productoFiltrado)
+        .then(res=> res.json())
+        .then(data=>{ 
+                    productoFiltrado = data.filter(prod => prod.nombre.includes(productoInput))
 renderizarCards(productoFiltrado)})})}
 
 
 
 filtroProductos ();
-// función renderizar productos desde navbar - *TODOS LOS PRODUCTOS*
+
+
+
+// función renderizar productos desde navbar opción: - *TODOS LOS PRODUCTOS*
 function filtroProductos() {
-    let seleccion = document.getElementById('render_cards').addEventListener('click', ()=> {
+    document.getElementById('render_cards').addEventListener('click', ()=> {
         llamadoAlFetch();
     })
 }
 
+// filtro menu navbar
 fitrarPorFruta ();
+fitrarPorVerdura ();
+fitrarPorEspecias ();
+
+
+
 // función renderizar filtro productos desde navbar frutas
 function fitrarPorFruta () {
-    let seleccion = document.getElementById('filtro_frutas').addEventListener('click', ()=> {
-        filtroTipo = stockProductos.filter(prod => prod.tipo === "fruta");
-        renderizarCards(filtroTipo);
-    })
+    let seleccion = document.getElementById('filtro_frutas').addEventListener('click', ()=> {   
+        console.log(seleccion)     
+    fetch('./js/stock.json') //=> ubicacion de stock productos formateado a json
+        .then(res=> res.json())
+        .then(data=>{ 
+            filtroTipo = data.filter(prod => prod.tipo === "fruta");
+renderizarCards(filtroTipo)})})
 }
 
-fitrarPorVerdura ();
+
 // función renderizar filtro productos desde navbar verduras
 function fitrarPorVerdura () {
-    let seleccion = document.getElementById('filtro_verduras').addEventListener('click', ()=> {
-        filtroTipo = stockProductos.filter(prod => prod.tipo === "verdura");
-        renderizarCards(filtroTipo);
-    })
+    let seleccion = document.getElementById('filtro_verduras').addEventListener('click', ()=> {   
+        console.log(seleccion)     
+    fetch('./js/stock.json') //=> ubicacion de stock productos formateado a json
+        .then(res=> res.json())
+        .then(data=>{ 
+            filtroTipo = data.filter(prod => prod.tipo === "verdura");
+renderizarCards(filtroTipo)})})
 }
 
-fitrarPorEspecias ();
 // función renderizar filtro productos desde navbar Especias
 function fitrarPorEspecias () {
-    let seleccion = document.getElementById('filtro_especias').addEventListener('click', ()=> {
-        filtroTipo = stockProductos.filter(prod => prod.tipo === "especias");
-        renderizarCards(filtroTipo);
-    })
+    let seleccion = document.getElementById('filtro_especias').addEventListener('click', ()=> {   
+        console.log(seleccion)     
+    fetch('./js/stock.json') //=> ubicacion de stock productos formateado a json
+        .then(res=> res.json())
+        .then(data=>{ 
+            filtroTipo = data.filter(prod => prod.tipo === "especias");
+renderizarCards(filtroTipo)})})
+
 }
 
 
@@ -181,12 +200,10 @@ function renderizarCarrito () {
             </div>
     </div>`
 
-
-
-    
     alCarrito.appendChild(div);
 
 })
+
 
 // indice contador de carrito
 contadorCarrito.innerText = carritoDeCompras.length
@@ -202,6 +219,7 @@ vaciarCarrito();
 
 }
 
+// Botón sumar producto desde pestaña carrito
 function sumarProducto () {
     carritoDeCompras.forEach(item=> {
         document.getElementById(`btnSumar${item.id}`).addEventListener('click', ()=>{
@@ -241,8 +259,6 @@ function mostrarTotal() {
     Total.appendChild(div);
 
 }
-
-
 
 
 
