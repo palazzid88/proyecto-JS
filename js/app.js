@@ -104,7 +104,7 @@ filtroProductos ();
 // función renderizar productos desde navbar - *TODOS LOS PRODUCTOS*
 function filtroProductos() {
     let seleccion = document.getElementById('render_cards').addEventListener('click', ()=> {
-        renderizarCards(stockProductos);
+        llamadoAlFetch();
     })
 }
 
