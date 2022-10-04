@@ -12,49 +12,43 @@
   />
 </head>
 <body class="body_index">
-    <header class="header">
-        
-        
-        
+    <header class="header"> 
         <nav class="navbar navbar-expand-lg bg-light ">
             <a class="navbar-brand" href="#"></a>
-            <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-            </button>
-            <button class="btn btn-primary btn_carrito" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                  <img class="carrito_img" src="./img/carrito.png" alt=""> 
-                  <span id="contador" class="contador_carrito">0</span>
-            </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="./pages/login.html">Login</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Productos
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a id="filtro_frutas" class="dropdown-item" href="#">Frutas</a></li>
-                  <li><a id="filtro_verduras" class="dropdown-item" href="#">Verduras</a></li>
-                  <li><a id="filtro_especias" class="dropdown-item" href="#">Especias</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a id="render_cards" class="dropdown-item" href="#">Todos los productos</a></li>
-                </ul>
-              </li>
-            </ul>
-            <form class="d-flex" role="search">
+            <div class="container-fluid continer_navbar">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <button class="btn btn-primary btn_carrito" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                <img class="carrito_img" src="./img/carrito.png" alt=""> 
+                <span id="contador" class="contador_carrito">0</span>
+              </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="">Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Productos
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li><a id="filtro_frutas" class="dropdown-item" href="#">Frutas</a></li>
+                    <li><a id="filtro_verduras" class="dropdown-item" href="#">Verduras</a></li>
+                    <li><a id="filtro_especias" class="dropdown-item" href="#">Especias</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a id="render_cards" class="dropdown-item" href="#">Todos los productos</a></li>
+                  </ul>
+                </li>
+              </ul>
+              <form class="d-flex" role="search">
                 <h6 class="subtitulo_buscador animate__animated animate__shakeX  animate__delay-2s">¿Que estás buscando?</h6>
                 <input id="ingreso_buscador" class="form-control me-2" type="text" placeholder="manzana" aria-label="Search">
                 <button id="btn_buscador" class="btn btn-outline-success" type="button">Buscar</button>
-            </form>
-        </div>
-        </div>
-      </nav>
+              </form>
+            </div>
+          </div>
+        </nav>
     </header>
 
     <!--contenedor para renderizar las cards de JS -->
