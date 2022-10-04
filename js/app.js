@@ -16,17 +16,18 @@ let alCarrito = document.getElementById("carrito");
 let Total = document.getElementById("total");
 let contadorCarrito = document.getElementById('contador');
 let contenedor = document.getElementById("main_container");
-let filtrar = document.getElementById("btn_buscador")
+let filtrar; 
 
+llamadoAlFetch ();
 
-
-//llamado por fetch a la URL local
+function llamadoAlFetch () {
 fetch('./js/stock.json') //=> ubicacion de stock productos formateado a json
 .then(res=> res.json())
 .then(data=>{
     console.log(data)
     renderizarCards(data);
-})
+})}
+
 // Función para renderizar cards en DOM
 function renderizarCards (prod) {
     contenedor.innerHTML = "";
@@ -86,12 +87,17 @@ function añadirFuncionBtn (prod) {
 
 // funcion de buscador de navbar
 function buscadorPorInput () {
-    filtrar.addEventListener(`click`, ()=> {
+    document.getElementById("btn_buscador").addEventListener(`click`, ()=> {
         let productoInput = document.getElementById("ingreso_buscador").value.toLowerCase();
-        productoFiltrado = stockProductos.filter(prod => prod.nombre.includes(productoInput))
-        renderizarCards(productoFiltrado);
-    })
-}
+        console.log(productoInput)    
+    fetch('./js/stock.json') //=> ubicacion de stock productos formateado a json
+    .then(res=> res.json())
+    .then(data=>{ 
+        console.log('hola', data);
+    productoFiltrado = data.filter(prod => prod.nombre.includes(productoInput))
+    console.log(productoFiltrado)
+renderizarCards(productoFiltrado)})})}
+
 
 
 filtroProductos ();
