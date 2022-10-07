@@ -225,7 +225,6 @@ width: 50px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin: 10px;
     padding: 10px;
     text-align: center;
     border: 1px solid, gray;
@@ -267,6 +266,10 @@ width: 50px;
     padding: 5px;
 }
 
+.carrito_overflow {
+    overflow-y: scroll;
+}
+
 .div_total {
     background-color: white;
     margin: 10px;
@@ -306,8 +309,31 @@ width: 50px;
 
 
 
-/*Login HTML*/
+/*COMPRA HTML*/
 
+.carrito_titulo {
+    background-color: white;
+    margin: auto;
+}
+
+.carrito_h3{
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+.carrito_pago {
+    background-color: white;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.total {
+    margin-top: 25px;
+}
 
 .main_login{
     margin-top: 100px;
@@ -382,10 +408,10 @@ width: 50px;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 25px;
     margin-bottom: 100px;
     padding: 50px;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .img_delivery { 
@@ -394,6 +420,7 @@ width: 50px;
 
 .titulo_delivery{
     margin: auto;
+    text-align: center;
 }
 
 .card_compra{
@@ -402,4 +429,8 @@ width: 50px;
     flex-wrap: wrap;
     align-content: center;
     align-items: flex-start;
+}
+
+.btn_regresar {
+    color: white;
 }

@@ -8,8 +8,10 @@ let direccion = document.getElementById('inputAddress');
 let altura = document.getElementById('inputAddresNumber');
 let dia = document.getElementById('autoSizingSelectDay');
 let hora = document.getElementById('autoSizingSelectHora'); 
-let total = document.getElementById('total-a-pagar');
+let total = document.getElementById('total');
 let pedido;
+let carritoDeCompras = JSON.parse(localStorage.getItem("carrito")) || []; 
+let alCarrito = document.getElementById('carrito_pago')
 
 
 // }
@@ -86,3 +88,49 @@ function renderizarPedido () {
                   </card>`
   final.appendChild(div);
 }
+
+
+// Funcion renderizar carrito de compras
+function renderizarCarrito () {
+    
+  alCarrito.innerHTML =""
+  carritoDeCompras.forEach(item=>{
+  valorSuma = `${item.precio * item.cantidad}`
+
+      let {img, nombre, cantidad, id, precio, unidad} = item;
+
+      let div = document.createElement('div');
+      div.className = 'div_carrito'
+      div.innerHTML = `<div class="carrito_flex">
+                        <div class="carrito_info">
+                        <picture class="carrito__picture">
+                          <img class="img_carrito" src=".${img}" alt="">
+                        </picture>
+                          <h4 class="nombre__carrito">${nombre}</h4>
+                        </div>
+                        <div class="carrito_cantidad">
+                          <p calss="cantidad__carrito">${cantidad} ${unidad}</p>
+                        </div>
+                        <div class="carrito_precio">
+                          <p class="precio_total">total: $${valorSuma}</p>
+                        </div>
+                      </div>`
+
+  alCarrito.appendChild(div);
+
+})}
+
+function mostrarTotal() {
+    
+  total.innerHTML= "";
+  let precioTotal = carritoDeCompras.reduce((acc, el) => acc + el.precio * el.cantidad, 0);
+  let div = document.createElement('div');
+  div.className = 'div_total';
+  div.innerHTML = `<h3 class="total_carrito">Total carrito: $${precioTotal}</h3>`;
+                   
+  total.appendChild(div);
+
+}
+
+renderizarCarrito ();
+mostrarTotal ();
