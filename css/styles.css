@@ -24,6 +24,11 @@ header {
     margin-bottom: 30px;
 }
 
+.titulo_header {
+    background-color: lawngreen;
+    padding: 10px;
+    margin-left: 25px;
+}
 
 .header__nav {
     max-width: 1200px;
@@ -295,7 +300,7 @@ width: 50px;
 .footer {
     font-family: "Mulish", sans-serif;
     max-width: 1200px;
-    font-size: 17px;
+    font-size: 13px;
     margin: 0 auto;
     margin-top: 50px;
     display: flex;
