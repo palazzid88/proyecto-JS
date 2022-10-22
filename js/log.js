@@ -40,6 +40,7 @@ if((email.value && nombre.value && apellido.value && celular.value && direccion.
         localStorage.removeItem("carrito"),
         window.location = "../index.html"
         )
+        renderizarPedido ();
     }
     else{
       swal.fire(
@@ -54,7 +55,6 @@ if((email.value && nombre.value && apellido.value && celular.value && direccion.
 
 
 
-  renderizarPedido ();
 }else{
 
   Swal.fire({
